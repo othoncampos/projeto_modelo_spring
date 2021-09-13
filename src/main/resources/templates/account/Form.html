@@ -1,0 +1,124 @@
+<div th:replace="shared/up"></div>
+<div th:replace="shared/header"></div>
+
+<section>
+	<div class="mainwrapper">
+		<div th:replace="shared/leftpanel"></div>
+
+		<div class="mainpanel">
+
+			<div th:replace="shared/pageheader"></div>
+
+			<div class="contentpanel">
+				<div class="row">
+					<form method="POST" id="basicForm" th:action="${route}">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title" th:text="${title}"></h4>
+								<p th:text="${subtitle}">.</p>
+							</div><!-- panel-heading -->
+							<div class="panel-body">
+								<div class="row">
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Pessoa <span class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<input type="text" id="id_pessoa" name="id_pessoa" th:value="${account.pessoa.id}"
+												th:readonly="${action == 'view'}" class="form-control"
+												placeholder="Digite o nome da conta..." required />
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Nome da Conta<span class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<input type="text" id="nome" name="nome" th:value="${account.nome}"
+												th:readonly="${action == 'view'}" class="form-control"
+												placeholder="Digite o nome da conta..." required />
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Banco <span class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<select id="id_banco" name="id_banco" class="form-control">
+										  	  	<option value="0">Selecione o banco</option>
+										    	<option th:each="banco : ${banks}"
+										    	        th:value="${banco.id_banco}" 
+										    	        th:selected="${banco.id_banco == account.bank.id_banco}"
+										    	        th:text="${banco.nome}">
+										    	</option>
+										    </select>
+									    </div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Tipo <span class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<input type="text" id="tipo" name="tipo" th:value="${account.tipo}"
+												th:readonly="${action == 'view'}" class="form-control"
+												placeholder="Digite o tipo do banco..." />
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Numero <span class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<input type="text" id="numero" name="numero" th:value="${account.numero}"
+												th:readonly="${action == 'view'}" class="form-control"
+												placeholder="Digite o numero da conta..." />
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Digito <span class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<input type="text" id="digito" name="digito" th:value="${account.digito}"
+												th:readonly="${action == 'view'}" class="form-control"
+												placeholder="Digite o digito da conta..." />
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Saldo <span class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<input type="text" id="saldo" name="saldo" th:value="${account.saldo}"
+												th:readonly="${action == 'view'}" class="form-control"
+												placeholder="Digite o digito da conta..." />
+										</div>
+									</div>
+								</div><!-- row -->
+							</div><!-- panel-body -->
+							<div class="panel-footer">
+								<div class="row">
+									<a href="/account" class="btn btn-success">Voltar</a>
+									<button type="submit" class="btn btn-primary">Salvar</button>
+									<button type="reset" class="btn btn-dark">Limpar</button>
+								</div>
+								<!-- 
+								<div class="row">
+									<div th:switch="${action}">
+										<div th:case="'view'">
+											<a href="/bank" class="btn btn-success">Voltar</a>
+										</div>
+										<div th:case="'edit'">
+											<a href="/bank" class="btn btn-success">Voltar</a>
+											<p th:case="'edit'">User is an administrator</p>
+										</div>
+										<div th:case="'new'">
+											<a href="/people" class="btn btn-success">Voltar</a>
+											<p th:case="'edit'">User is an administrator</p>
+											<p th:case="*">User is a manager</p>
+										</div>
+									</div>
+								</div> 
+								-->
+							</div>
+					</form>
+				</div>
+			</div><!-- contentpanel -->
+		</div><!-- mainpanel -->
+
+	</div><!-- mainwrapper -->
+</section>
+
+<div th:replace="shared/down"></div>

@@ -1,0 +1,65 @@
+<div th:replace="shared/up"></div>
+<div th:replace="shared/header"></div>
+
+<section>
+	<div class="mainwrapper">
+		<div th:replace="shared/leftpanel"></div>
+
+		<div class="mainpanel">
+
+			<div th:replace="shared/pageheader"></div>
+
+			<div class="contentpanel">
+				<div class="row">
+
+					
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title" th:text="${title}"></h4>
+								<p th:text="${subtitle}">.</p>
+							</div><!-- panel-heading -->
+							<div class="panel-body">
+								<div class="row">
+									<div class="form-group">
+										<label class="col-sm-3 control-label">ID <span class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<label class="col-sm-3 control-label" th:text="${bank.id_banco}"></label>
+										</div>
+									</div><!-- form-group -->
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Nome <span class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<label class="col-sm-3 control-label" th:text="${bank.nome}"></label>
+										</div>
+									</div><!-- form-group -->
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Email <span
+												class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<label class="col-sm-3 control-label" th:text="${bank.url}"></label>
+										</div>
+									</div><!-- form-group -->
+
+									
+
+								</div><!-- row -->
+							</div><!-- panel-body -->
+							<div class="panel-footer">
+								<div class="row">
+									<a href="/people" class="btn btn-success">Voltar</a>
+								</div>
+							</div><!-- panel -->
+					
+
+				</div>
+
+			</div><!-- contentpanel -->
+
+		</div><!-- mainpanel -->
+
+	</div><!-- mainwrapper -->
+</section>
+
+<div th:replace="shared/down"></div>

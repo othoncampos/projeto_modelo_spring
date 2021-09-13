@@ -1,0 +1,66 @@
+<div th:replace="shared/up"></div>
+<div th:replace="shared/header"></div>
+
+<section>
+	<div class="mainwrapper">
+		<div th:replace="shared/leftpanel"></div>
+
+		<div class="mainpanel">
+
+			<div th:replace="shared/pageheader"></div>
+
+			<div class="contentpanel">
+
+
+				<div class="row">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">Lista de Pessoas</h4>
+							<p>Tela para listagem das pessoas cadastradas no sistema.</p>
+						</div><!-- panel-heading -->
+
+						<div class="panel-body nopadding">
+							<a href="/people/new" class="btn btn-primary" style="margin: 10px;">Novo</a>
+							<div class="table-responsive">
+								<table class="table table-hidaction table-hover mb30">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>Nome</th>
+											<th>E-Mail</th>
+											<th></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="pessoa : ${pessoas}">
+											<td th:text="${pessoa.id}"></td>
+											<td th:text="${pessoa.nome}"></td>
+											<td th:text="${pessoa.email}"></td>
+											<td>
+												<a th:href="@{/people/view/{id}(id=${pessoa.id})}"   class="btn btn-info"><i class="fa fa-eye white"></i></a>
+												<a th:href="@{/people/alter/{id}(id=${pessoa.id})}"  class="btn btn-success"><i class="fa fa-pencil white"></i></a>
+												<a th:href="@{/people/delete/{id}(id=${pessoa.id})}" class="btn btn-danger"><i class="fa fa-trash-o white"></i></a>
+											</td>
+										</tr>
+									</tbody>
+
+								</table>
+							</div><!-- table-responsive -->
+
+						</div><!-- panel-body -->
+
+						<div class="panel-footer">
+							<a href="/home" class="btn btn-success" >Voltar</a>
+						</div><!-- panel-footer -->
+					</div><!-- panel -->
+
+				</div>
+
+			</div><!-- contentpanel -->
+
+		</div><!-- mainpanel -->
+
+	</div><!-- mainwrapper -->
+</section>
+
+<div th:replace="shared/down"></div>

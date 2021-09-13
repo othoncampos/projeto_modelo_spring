@@ -1,0 +1,19 @@
+
+				<div class="pageheader" th:fragment="pageheader">
+					<div class="media">
+						<div class="pageicon pull-left">
+							<i class="fa fa-home"></i>
+						</div>
+						<div class="media-body">
+							<ul class="breadcrumb">
+								<li>
+									<a href="/home"><i class="glyphicon glyphicon-home"></i></a>
+								</li>
+								<li>
+									<a th:href="${router}" th:text="${titlePage}" >Dashboard</a>
+								</li>
+							</ul>
+							<h4 th:text="${titlePage}" >Dashboard</h4>
+						</div>
+					</div><!-- media -->
+				</div><!-- pageheader -->

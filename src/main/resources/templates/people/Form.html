@@ -1,0 +1,110 @@
+<div th:replace="shared/up"></div>
+<div th:replace="shared/header"></div>
+
+<section>
+	<div class="mainwrapper">
+		<div th:replace="shared/leftpanel"></div>
+
+		<div class="mainpanel">
+
+			<div th:replace="shared/pageheader"></div>
+
+			<div class="contentpanel">
+				<div class="row">
+					<form method="POST" id="basicForm" th:action="${route}">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title" th:text="${title}"></h4>
+								<p th:text="${subtitle}">.</p>
+							</div><!-- panel-heading -->
+							<div class="panel-body">
+								<div class="row">
+								
+									<div class="form-group" th:if="${action!='new'}">
+										<label class="col-sm-3 control-label">ID <span
+												class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<input type="text" id="id" name="id" th:value="${pessoa.id}" readonly class="form-control" />
+										</div>
+									</div><!-- form-group -->
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Nome <span
+												class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<input type="text" id="nome" name="nome" th:value="${pessoa.nome}"
+												th:readonly="${action == 'view'}" class="form-control"
+												placeholder="Digite o nome..." required />
+										</div>
+									</div><!-- form-group -->
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Email <span
+												class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<input type="email" id="email" name="email" th:value="${pessoa.email}"
+												th:readonly="${action == 'view'}" class="form-control"
+												placeholder="Digite o e-mail..." required />
+										</div>
+									</div><!-- form-group -->
+
+									<div class="form-group" th:if="${action=='new'}">
+										<label class="col-sm-3 control-label">Senha <span
+												class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<input type="password" id="senha" name="senha" th:value="${pessoa.senha}"
+												th:readonly="${action == 'view'}" class="form-control" />
+										</div>
+									</div><!-- form-group -->
+
+									<div class="form-group" th:if="${action=='new'}">
+										<label class="col-sm-3 control-label">Confirmação da Senha <span
+												class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<input type="password" id="confirmacaosenha" name="confirmacaosenha"
+												th:readonly="${action == 'view'}" class="form-control" />
+										</div>
+									</div><!-- form-group -->
+
+								</div><!-- row -->
+							</div><!-- panel-body -->
+							<div class="panel-footer">
+								<div class="row">
+									<a href="/people" class="btn btn-success">Voltar</a>
+									<button type="submit" class="btn btn-primary">Salvar</button>
+									<button type="reset" class="btn btn-dark">Limpar</button>
+								</div>
+
+
+								<!-- 
+								<div class="row">
+									<div th:switch="${action}">
+										<div th:case="'view'">
+											<a href="/people" class="btn btn-success">Voltar</a>
+										</div>
+										<div th:case="'edit'">
+											<a href="/people" class="btn btn-success">Voltar</a>
+											<p th:case="'edit'">User is an administrator</p>
+										</div>
+										<div th:case="'new'">
+											<a href="/people" class="btn btn-success">Voltar</a>
+											<p th:case="'edit'">User is an administrator</p>
+											<p th:case="*">User is a manager</p>
+										</div>
+									</div>
+								</div> 
+								-->
+								
+							</div><!-- panel -->
+					</form>
+
+				</div>
+
+			</div><!-- contentpanel -->
+
+		</div><!-- mainpanel -->
+
+	</div><!-- mainwrapper -->
+</section>
+
+<div th:replace="shared/down"></div>

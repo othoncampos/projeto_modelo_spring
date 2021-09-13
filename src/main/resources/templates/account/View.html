@@ -1,0 +1,87 @@
+<div th:replace="shared/up"></div>
+<div th:replace="shared/header"></div>
+
+<section>
+	<div class="mainwrapper">
+		<div th:replace="shared/leftpanel"></div>
+
+		<div class="mainpanel">
+
+			<div th:replace="shared/pageheader"></div>
+
+			<div class="contentpanel">
+				<div class="row">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title" th:text="${title}"></h4>
+							<p th:text="${subtitle}">.</p>
+						</div><!-- panel-heading -->
+						<div class="panel-body">
+							<div class="row">
+								<div class="form-group">
+									<label class="col-sm-3 control-label">ID</label>
+									<div class="col-sm-9">
+										<label class="col-sm-3 control-label" th:text="${account.id}"></label>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label">Pessoa</label>
+									<div class="col-sm-9">
+										<label class="col-sm-3 control-label" th:text="${account.pessoa.nome}"></label>
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="col-sm-3 control-label">Nome da Conta</label>
+									<div class="col-sm-9">
+										<label class="col-sm-3 control-label" th:text="${account.nome}"></label>
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="col-sm-3 control-label">Banco</label>
+									<div class="col-sm-9">
+										<label class="col-sm-3 control-label" th:text="${account.bank.nome}"></label>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label">Tipo da Conta</label>
+									<div class="col-sm-9">
+										<label class="col-sm-3 control-label" th:text="${account.tipo}"></label>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label">Conta</label>
+									<div class="col-sm-9">
+										<label class="col-sm-3 control-label" th:text="${account.numeroDigito}"></label>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label">Conta</label>
+									<div class="col-sm-9">
+										<label class="col-sm-3 control-label"
+											th:text="${account.saldoFormatado}"></label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel-footer">
+							<div class="row">
+								<a href="/account" class="btn btn-success">Voltar</a>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+</section>
+
+<div th:replace="shared/down"></div>

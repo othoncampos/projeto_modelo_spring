@@ -1,0 +1,66 @@
+<div th:replace="shared/up"></div>
+<div th:replace="shared/header"></div>
+
+<section>
+	<div class="mainwrapper">
+		<div th:replace="shared/leftpanel"></div>
+
+		<div class="mainpanel">
+
+			<div th:replace="shared/pageheader"></div>
+
+			<div class="contentpanel">
+
+
+				<div class="row">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">Lista de Bancos</h4>
+							<p>Tela para listagem dos bancos cadastradas no sistema.</p>
+						</div><!-- panel-heading -->
+
+						<div class="panel-body nopadding">
+							<a href="/bank/new" class="btn btn-primary" style="margin: 10px;">Novo</a>
+							<div class="table-responsive">
+								<table class="table table-hidaction table-hover mb30">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>Nome</th>
+											<th>URL</th>
+											<th></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="bank : ${banks}">
+											<td th:text="${bank.id_banco}"></td>
+											<td th:text="${bank.nome}"></td>
+											<td th:text="${bank.url}"></td>
+											<td>
+												<a th:href="@{/bank/view/{id}(id=${bank.id_banco})}"   class="btn btn-info"><i class="fa fa-eye white"></i></a>
+												<a th:href="@{/bank/alter/{id}(id=${bank.id_banco})}"  class="btn btn-success"><i class="fa fa-pencil white"></i></a>
+												<a th:href="@{/bank/delete/{id}(id=${bank.id_banco})}" class="btn btn-danger"><i class="fa fa-trash-o white"></i></a>
+											</td>
+										</tr>
+									</tbody>
+
+								</table>
+							</div><!-- table-responsive -->
+
+						</div><!-- panel-body -->
+
+						<div class="panel-footer">
+							<a href="/home" class="btn btn-success" >Voltar</a>
+						</div><!-- panel-footer -->
+					</div><!-- panel -->
+
+				</div>
+
+			</div><!-- contentpanel -->
+
+		</div><!-- mainpanel -->
+
+	</div><!-- mainwrapper -->
+</section>
+
+<div th:replace="shared/down"></div>
